@@ -1,9 +1,11 @@
 <Configuration status="debug">
     <Properties>
-        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - aktuális iteráció száma: %X{iteration} - %msg%n</Property>
     </Properties>
     <Appenders>
-        <Console name="console" target="SYSTEM_OUT"/>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
         <File name="File1" fileName="Győrfi_Pál.log" append="true">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <TimeFilter start="05:00:00" end="20:00:00" onMatch="DENY" onMismatch="ACCEPT"/>
